@@ -1,0 +1,22 @@
+#cloud-config
+
+users:
+  - name: edward
+  - name: minecraft
+
+package_update: true
+package_upgrade: true
+
+packages:
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - software-properties-common
+
+runcmd:
+  - 'curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -'
+  - 'sudo apt-key fingerprint 0EBFCD88'
+  - 'add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+    $(lsb_release -cs) stable"'
+  - 'sudo apt-get update'
+  - 'sudo apt-get install docker-ce'
