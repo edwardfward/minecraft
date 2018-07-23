@@ -22,6 +22,10 @@ RUN echo "eula=true" > eula.txt
 # Download the server jar
 # You can find the latest version at the following site
 # https://minecraft.net/en-us/download/server
+
+# Minecraft server setup instructions
+# https://minecraft.gamepedia.com/Tutorials/Setting_up_a_server
+# https://minecraft.gamepedia.com/Server
 RUN wget https://launcher.mojang.com/mc/game/1.13/server/d0caafb8438ebd206f99930cfaecfa6c9a13dca0/server.jar
 
 EXPOSE 9999/tcp
