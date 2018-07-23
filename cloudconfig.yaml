@@ -14,17 +14,17 @@ packages:
   - software-properties-common
 
 runcmd:
-  - 'sudo apt-get autoremove -y'
-  - 'curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -'
-  - 'sudo apt-key fingerprint 0EBFCD88'
-  - 'add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"'
-  - 'sudo apt-get update'
-  - 'sudo apt-get install docker-ce -y'
-  - 'sudo docker --version'
-  - 'sudo docker volume create minecraft'
-  - 'sudo mkdir -p /repo/minecraft'
-  - 'sudo git clone https://github.com/edwardfward/minecraft.git /repo/minecraft'
-  - 'sudo docker build -f /repo/minecraft/minecraft.DockerFile -t rowansworld /repo/minecraft'
-  - 'sudo docker run -p 9999:9999 -v minecraft:/minecraft/backup --name RowansWorld rowansworld:latest'
+  - sudo apt-get autoremove -y
+  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  - sudo apt-key fingerprint 0EBFCD88
+  - add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  - sudo apt-get update
+  - sudo apt-get install docker-ce -y
+  - sudo docker --version
+  - sudo docker volume create minecraftbackup
+  - sudo mkdir -p /repo/minecraft
+  - sudo git clone https://github.com/edwardfward/minecraft.git /repo/minecraft
+  - sudo docker build -f /repo/minecraft/minecraft.DockerFile -t rowansworld /repo/minecraft
+  - sudo docker run -d -p 9999:9999 -v minecraftbackup:/minecraft/backup --name RowansWorld rowansworld:latest
 
 
