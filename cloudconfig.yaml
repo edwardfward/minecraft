@@ -26,4 +26,3 @@ runcmd:
   - git clone https://github.com/edwardfward/minecraft.git /repo/minecraft
   - docker build -f /repo/minecraft/minecraft.DockerFile -t rowansworld /repo/minecraft
   - docker run -d -p 9999:9999 -v minecraftbackup:/minecraft/backup --name RowansWorld rowansworld:latest
-
